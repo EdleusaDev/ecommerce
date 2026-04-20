@@ -131,9 +131,13 @@ h2 {
 }
 
 #menu a {
-    text-decoration: none;
     color: white;
-    font-weight: bold;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 16px;         /* Aumentamos o tamanho */
+    font-weight: bold;       /* Deixamos em negrito */
+    text-transform: uppercase; /* MÁGICA: Transforma tudo em MAIÚSCULO automaticamente */
+    letter-spacing: 1px;     /* Dá um respiro elegante entre as letras */
     transition: 0.3s;
 }
 
@@ -204,10 +208,10 @@ h3 {
 #rodape {
     margin-top: auto;
     text-align: center;
-    color: #bdbdbd;
-    font-size: 14px;
+    color: #666;
+    font-size: 12px;
     padding: 20px;
-    border-top: 1px solid #333;
+    letter-spacing: 0;
 }
 
 /* --- RESPONSIVIDADE (CELULAR) --- */
