@@ -137,6 +137,7 @@ header {
     text-transform: uppercase;  /* TRANSFORMA EM MAIÚSCULO */
     letter-spacing: 1px;        /* Espaçamento elegante entre letras */
     transition: 0.3s;
+    margin: 15px !important;
 }
 
 #menu a:hover {
