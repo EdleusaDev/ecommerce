@@ -1,30 +1,26 @@
-/* Configurações Globais */
-*{
+/* 1. RESET E CONFIGURAÇÕES GERAIS */
+* {
     box-sizing: border-box;
-}
-
-html, body{
     margin: 0;
     padding: 0;
-    height: 100%;
 }
 
-body{
+body {
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background-color: black;
-    font-family: Arial, Helvetica, sans-serif;
+    overflow-x: hidden; /* Evita barra de rolagem lateral chata */
 }
 
-/* --- CABEÇALHO (CORRIGIDO) --- */
-
+/* 2. CABEÇALHO (Onde a mágica acontece) */
 header {
     width: 100%;
     background-color: black;
 }
 
-header nav {
+.nav-principal {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -33,51 +29,54 @@ header nav {
 /* Linha de cima: Logo, Busca e Login */
 .linha-topo {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Empurra a logo pra esquerda e as ações pra direita */
     align-items: center;
-    padding: 20px 50px;
+    padding: 20px 5%;
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /* Para não quebrar em telas médias */
 }
 
+/* Logomarca */
 #logomarca {
     display: flex;
     flex-direction: column;
 }
 
-h1 {
+#logomarca h1 {
     color: #FF007F;
-    text-align: left;
     font-family: 'Lucida handwriting', cursive;
     font-size: 50px;
     margin: 0;
 }
 
-h2 {
+#logomarca h2 {
     color: #FF007F;
-    font-size: 18px;
-    margin: 5px 0 0 5px;
+    font-size: 16px;
+    margin-top: 5px;
     font-family: Arial, sans-serif;
+    font-weight: normal;
 }
 
-/* Agrupamento de Busca e Login */
+/* Agrupamento de Busca e Login na Direita */
 .acoes-usuario {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
+/* Estilização da Busca */
 #pesquisa {
     display: flex;
     align-items: center;
     border: 1px solid #FF007F;
     border-radius: 5px;
+    background-color: white; /* Fundo branco para o input */
     overflow: hidden;
 }
 
 #busca {
     border: none;
-    padding: 8px;
+    padding: 10px;
     width: 250px;
     outline: none;
     height: 35px;
@@ -99,6 +98,7 @@ h2 {
     color: black;
 }
 
+/* Botão de Login */
 #btnLogin {
     background-color: white;
     color: black;
@@ -116,12 +116,11 @@ h2 {
     color: white;
 }
 
-/* --- MENU DE CATEGORIAS (O ROSA) --- */
-
+/* 3. MENU DE CATEGORIAS (O ROSA - COM LETRAS GRANDES) */
 #menu {
     border-top: 2px solid #FF007F;
     border-bottom: 2px solid #FF007F;
-    margin-top: 20px;
+    margin-top: 10px;
     padding: 15px 0;
     width: 100%;
     display: flex;
@@ -131,13 +130,12 @@ h2 {
 }
 
 #menu a {
-    color: white;
     text-decoration: none;
-    font-family: Arial, sans-serif;
-    font-size: 16px;         /* Aumentamos o tamanho */
-    font-weight: bold;       /* Deixamos em negrito */
-    text-transform: uppercase; /* MÁGICA: Transforma tudo em MAIÚSCULO automaticamente */
-    letter-spacing: 1px;     /* Dá um respiro elegante entre as letras */
+    color: white;
+    font-weight: bold;
+    font-size: 17px;           /* Tamanho de menu profissional */
+    text-transform: uppercase;  /* TRANSFORMA EM MAIÚSCULO */
+    letter-spacing: 1px;        /* Espaçamento elegante entre letras */
     transition: 0.3s;
 }
 
@@ -146,12 +144,10 @@ h2 {
     text-decoration: underline;
 }
 
-/* --- CONTEÚDO E GALERIA --- */
-
+/* 4. CONTEÚDO (PRODUTOS) */
 h3 {
     color: #FF007F;
-    font-family: Arial, sans-serif;
-    font-size: 24px;
+    font-size: 28px;
     margin: 40px 0 20px 0;
     text-align: center;
 }
@@ -159,19 +155,23 @@ h3 {
 #product-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
     padding: 20px;
 }
 
 .product {
-    width: 250px;
-    border: 1px solid #ddd;
+    width: 260px;
+    border: 1px solid #333;
     padding: 15px;
     text-align: center;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #1a1a1a; /* Fundo levemente cinza para destacar no preto */
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.03); /* Efeito de zoom ao passar o mouse */
 }
 
 .product img {
@@ -181,51 +181,39 @@ h3 {
 }
 
 .product button {
-    background-color: black;
-    color: #FF007F;
-    border: 1px solid #FF007F;
-    padding: 10px;
-    margin-top: 10px;
+    background-color: #FF007F;
+    color: black;
+    border: none;
+    padding: 12px;
+    margin-top: 15px;
     border-radius: 5px;
     cursor: pointer;
     width: 100%;
-    transition: 0.3s;
+    font-weight: bold;
 }
 
-.product button:hover {
-    background-color: #FF007F;
-    color: black;
-}
-
-/* --- CARROSSEL E RODAPÉ --- */
-
-.carousel-inner > .item > img {
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-}
-
+/* 5. RODAPÉ (DISCRETO) */
 #rodape {
     margin-top: auto;
     text-align: center;
     color: #666;
-    font-size: 12px;
-    padding: 20px;
-    letter-spacing: 0;
+    font-size: 13px;
+    padding: 30px;
+    border-top: 1px solid #222;
 }
 
-/* --- RESPONSIVIDADE (CELULAR) --- */
-
+/* 6. RESPONSIVIDADE (Para o seu celular) */
 @media (max-width: 768px) {
     .linha-topo {
         flex-direction: column;
+        text-align: center;
         padding: 20px;
-        gap: 20px;
     }
     
     .acoes-usuario {
         flex-direction: column;
         width: 100%;
+        margin-top: 20px;
     }
 
     #pesquisa {
@@ -239,6 +227,6 @@ h3 {
     #menu {
         flex-direction: column;
         align-items: center;
-        gap: 10px;
+        gap: 15px;
     }
 }
