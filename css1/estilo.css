@@ -1,4 +1,15 @@
+*{
+	box-sizing: border-box;
+}
+html, body{
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
 body{
+	display: flex;
+	flex-direction: column;
+	nin-height: 100vh;
     background-color: black;
 }
 h1, h2{
@@ -59,6 +70,9 @@ h3{
     margin-right: 80px;
     height: 30px;
 }
+.galery {
+	width: 100%;
+}
 
 #menu{
     border: solid;
@@ -66,36 +80,41 @@ h3{
     border-left: none;
     border-right: none;
     margin-top: 50px;
-    height: 40px;
     padding-top: 7px;
     width: 100%;
- 
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
 }
 
-a{
-    margin: 30px;
-    margin-right: 45px;
-    text-decoration: none;
-    color: white;
-  
+#menu a{
+	margin: 15px 25px;
+	text-decoration: none;
+	color: white;
 }
-a:hover{
+#menu a:hover {
     color: #FF007F;
     text-decoration: underline;
     font-weight: bold;
 }
-
-.carousel-item img {
-    width: 50%;  /* Garante que a imagem se ajuste à largura do carrossel*/
+#meuCarrossel {
+	width: 100%;
+}
+.carousel-inner {
+	width: 100%;
+}
+.carousel-inner > .item > img {
+    width: 100%;  /* Garante que a imagem se ajuste à largura do carrossel*/
     height: 500px; /*ajusta a altura*/
     object-fit: cover; /*evita distorção da imagem ao ser cortada*/
 }
 
-#rodape{
+#rodape {
+	margin-top: auto;
     text-align: center;
     color: #bdbdbd;
-    font-size: small;
-    clear: both;
+    font-size: smal;
 	padding: 16px;
 }
 #product-list {
@@ -149,7 +168,11 @@ a:hover{
 
 @media (max-width: 768px) {
     #menu {
-        display: flex;
         flex-direction: column;
-    }
+		align-items: center;
+		height: auto;
+	}
+	#menu a {
+		margin: 10px 0;
+	}
 }
