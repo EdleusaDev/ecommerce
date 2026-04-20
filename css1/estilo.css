@@ -12,6 +12,17 @@ body{
 	nin-height: 100vh;
     background-color: black;
 }
+nav {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+}
+.navbar-right {
+	display: flex;
+	align-items: center;
+}
 h1, h2{
     color: #FF007F;
     text-align: left;
@@ -38,11 +49,15 @@ h3{
     margin-left: 40px;
     text-align: center;
 }
-
-#logomarca{
-    display: inline-block;
+#logomarca {
+	display: flex;
+	flex-direction: column;
 }
-
+#pesquisa{
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
 #btnLogin{
     background-color: white;
     color: black;
@@ -171,5 +186,15 @@ h3{
 	}
 	#menu a {
 		margin: 10px 0;
+	}
+	nav {
+		flex-direction: column;
+		align-items: center;
+	}
+	#pesquisa {
+		justify-content: center;
+	}
+	.navbar-right {
+		justify-content: center;
 	}
 }
