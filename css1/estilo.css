@@ -1,4 +1,4 @@
-/* 1.  CONFIGURAÇÕES GERAIS */
+/* 1.CONFIGURAÇÕES GERAIS */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -11,13 +11,15 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    overflow-x: hidden; /* Evita barra de rolagem lateral chata */
+    width: 100%;
+    overflow-x: hidden; /* Evita a barra de rolagem lateral */
 }
 
-/* 2. CABEÇALHO (Onde a mágica acontece) */
+/* 2. CABEÇALHO (Logo, Busca e Login) */
 header {
     width: 100%;
     background-color: black;
+    z-index: 10;
 }
 
 .nav-principal {
@@ -26,20 +28,13 @@ header {
     width: 100%;
 }
 
-/* Linha de cima: Logo, Busca e Login */
 .linha-topo {
     display: flex;
-    justify-content: space-between; /* Empurra a logo pra esquerda e as ações pra direita */
+    justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
     width: 100%;
-    flex-wrap: wrap; /* Para não quebrar em telas médias */
-}
-
-/* Logomarca */
-#logomarca {
-    display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 #logomarca h1 {
@@ -53,24 +48,21 @@ header {
     color: #FF007F;
     font-size: 16px;
     margin-top: 5px;
-    font-family: Arial, sans-serif;
     font-weight: normal;
 }
 
-/* Agrupamento de Busca e Login na Direita */
+/* Busca e Login */
 .acoes-usuario {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-/* Estilização da Busca */
 #pesquisa {
     display: flex;
-    align-items: center;
     border: 1px solid #FF007F;
     border-radius: 5px;
-    background-color: white; /* Fundo branco para o input */
+    background-color: white;
     overflow: hidden;
 }
 
@@ -90,15 +82,8 @@ header {
     height: 35px;
     cursor: pointer;
     font-weight: bold;
-    transition: 0.3s;
 }
 
-#btnIr:hover {
-    background-color: #FF007F;
-    color: black;
-}
-
-/* Botão de Login */
 #btnLogin {
     background-color: white;
     color: black;
@@ -108,44 +93,54 @@ header {
     padding: 8px 20px;
     border-radius: 5px;
     cursor: pointer;
-    transition: 0.3s;
 }
 
-#btnLogin:hover {
-    background-color: #FF007F;
-    color: white;
-}
-
-/* 3. MENU DE CATEGORIAS (O ROSA - COM LETRAS GRANDES) */
+/* 3. MENU DE CATEGORIAS (ROSA) */
 #menu {
     border-top: 2px solid #FF007F;
     border-bottom: 2px solid #FF007F;
     margin-top: 10px;
     padding: 15px 0;
     width: 100%;
-    display: flex !important;
+    display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 30px;
+    flex-wrap: wrap;
 }
 
 #menu a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 17px;           /* Tamanho de menu profissional */
-    text-transform: uppercase;  /* TRANSFORMA EM MAIÚSCULO */
-    letter-spacing: 1px;        /* Espaçamento elegante entre letras */
+    font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: 0.3s;
-    margin: 15px !important;
 }
 
 #menu a:hover {
     color: #FF007F;
-    text-decoration: underline;
 }
 
-/* 4. CONTEÚDO (PRODUTOS) */
+/* 4. CARROSSEL (CORREÇÃO DO TAMANHO) */
+#meuCarrossel {
+    width: 100% !important;
+    align-self: stretch; /* Obriga o carrossel a esticar até as bordas */
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-inner {
+    width: 100%;
+}
+
+.carousel-inner .item img {
+    width: 100%;       /* Ocupa toda a largura do container pai */
+    height: 500px;     /* Mantém a altura que você gosta */
+    object-fit: cover; /* Corta a imagem sem distorcer para preencher o espaço */
+}
+
+/* 5. LISTA DE PRODUTOS */
 h3 {
     color: #FF007F;
     font-size: 28px;
@@ -159,6 +154,7 @@ h3 {
     gap: 25px;
     justify-content: center;
     padding: 20px;
+    width: 100%;
 }
 
 .product {
@@ -166,13 +162,8 @@ h3 {
     border: 1px solid #333;
     padding: 15px;
     text-align: center;
-    background-color: #1a1a1a; /* Fundo levemente cinza para destacar no preto */
+    background-color: #1a1a1a;
     border-radius: 8px;
-    transition: transform 0.3s;
-}
-
-.product:hover {
-    transform: scale(1.03); /* Efeito de zoom ao passar o mouse */
 }
 
 .product img {
@@ -193,41 +184,29 @@ h3 {
     font-weight: bold;
 }
 
-/* 5. RODAPÉ (DISCRETO) */
+/* 6. RODAPÉ */
 #rodape {
     margin-top: auto;
     text-align: center;
     color: #666;
     font-size: 13px;
     padding: 30px;
-    border-top: 1px solid #222;
 }
 
-/* 6. RESPONSIVIDADE (Para o seu celular) */
+/* 7. RESPONSIVIDADE */
 @media (max-width: 768px) {
     .linha-topo {
         flex-direction: column;
-        text-align: center;
-        padding: 20px;
+        gap: 20px;
     }
-    
     .acoes-usuario {
         flex-direction: column;
         width: 100%;
-        margin-top: 20px;
     }
-
-    #pesquisa {
-        width: 100%;
-    }
-
     #busca {
         width: 100%;
     }
-
-    #menu {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
+    .carousel-inner .item img {
+        height: 300px; /* Menor no celular para ficar proporcional */
     }
 }
