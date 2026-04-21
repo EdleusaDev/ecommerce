@@ -139,7 +139,13 @@ header {
     height: 500px;     /* Mantém a altura que você gosta */
     object-fit: cover; /* Corta a imagem sem distorcer para preencher o espaço */
 }
-
+/* evitar  que o Bootstrap sobrescreva as configurações desejadas*/
+#meuCarrossel .carousel-inner .item img {
+    width: 100% !important;
+    height: 500px !important; /* Aqui você define a altura fixa que deseja */
+    object-fit: cover !important; /* Aqui garantimos que não haja distorção */
+    object-position: center; /* Centraliza a parte da imagem que será exibida */
+}
 /* 5. LISTA DE PRODUTOS */
 h3 {
     color: #FF007F;
