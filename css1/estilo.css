@@ -29,18 +29,23 @@ header {
 }
 
 .linha-topo {
-    display: flex;
+   /* display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 5%;
     width: 100%;
-    flex-wrap: wrap;
+    flex-wrap: wrap;*/
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
 }
 #logomarca {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    flex: 1;
 }
 #logomarca h1, #logomarca h2 {
     margin-left: 0;
