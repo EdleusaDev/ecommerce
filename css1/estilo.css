@@ -36,12 +36,21 @@ header {
     width: 100%;
     flex-wrap: wrap;
 }
-
+#logomarca {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+#logomarca h1, #logomarca h2 {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
 #logomarca h1 {
     color: #FF007F;
     font-family: 'Lucida handwriting', cursive;
     font-size: 50px;
-    margin: 0;
 }
 
 #logomarca h2 {
