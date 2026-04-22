@@ -1,4 +1,4 @@
-/* 1.CONFIGURAÇÕES GERAIS */
+4/* 1.CONFIGURAÇÕES GERAIS */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -89,7 +89,7 @@ header {
 }
 
 #btnIr {
-    background-color: black;
+    background-color: transparent;
     color: #FF007F;
     border: none;
     padding: 0 15px;
@@ -108,7 +108,11 @@ header {
     border-radius: 5px;
     cursor: pointer;
 }
-
+#btnIr:hover, #btnLogin:hover {
+    background-color: #FF007F !important;
+    color: #000000 !important;
+    font-weight: bold;
+}
 /* 3. MENU DE CATEGORIAS (ROSA) */
 #menu {
     border-top: 2px solid #FF007F;
