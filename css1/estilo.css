@@ -73,23 +73,6 @@ header {
     height: 35px;
     padding: 5px 10px;
 }
-
-#btnIr, #btnLogin {
-    height: 35px;
-    background-color: transparent;
-    color: #FF007F;
-    border: 1px solid #FF007F;
-    padding: 0 15px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#btnIr:hover, #btnLogin:hover {
-    background-color: #FF007F !important;
-    color: #000000 !important;
-    font-weight: bold;
-}
-
 #menu {
     background-color: #FF007F;
     display: flex;
