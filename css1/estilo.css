@@ -27,49 +27,127 @@ header {
     flex-direction: column;
     width: 100%;
 }
-
 .linha-topo {
-   /* display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 5%;
-    width: 100%;
-    flex-wrap: wrap;*/
     display: flex;
     justify-content: space-between; 
     align-items: center;
+    padding: 20px 5%;
     width: 100%;
+    background-color: #000;
 }
+
 #logomarca {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    flex: 1;
 }
-#logomarca h1, #logomarca h2 {
-    margin-left: 0;
-    margin-right: 0;
-    width: 100%;
-}
+
 #logomarca h1 {
     color: #FF007F;
     font-family: 'Lucida handwriting', cursive;
     font-size: 50px;
+    margin: 0;
 }
 
 #logomarca h2 {
     color: #FF007F;
-    font-size: 16px;
+    font-size: 14px;
     margin-top: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     font-weight: normal;
 }
 
-/* Busca e Login */
 .acoes-usuario {
     display: flex;
     align-items: center;
+    gap: 15px;
+}
+
+#pesquisa {
+    display: flex;
+}
+
+#busca {
+    height: 35px;
+    padding: 5px 10px;
+}
+
+#btnIr, #btnLogin {
+    height: 35px;
+    background-color: transparent;
+    color: #FF007F;
+    border: 1px solid #FF007F;
+    padding: 0 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#btnIr:hover, #btnLogin:hover {
+    background-color: #FF007F !important;
+    color: #000000 !important;
+    font-weight: bold;
+}
+
+#menu {
+    background-color: #FF007F;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    gap: 25px;
+}
+
+#menu a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#meuCarrossel {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
+    padding: 40px 0;
+}
+
+.product {
+    text-align: center;
+    width: 250px;
+}
+
+.product p {
+    color: #FF007F !important;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+#rodape {
+    background-color: #000;
+    padding: 20px 0;
+    margin-top: 50px;
+    border-top: 1px solid #222;
+}
+
+#rodape p {
+    color: #ffffff !important;
+    text-align: center;
+    font-size: 14px;
+    margin: 0;
 }
 
 #pesquisa {
@@ -153,18 +231,19 @@ header {
 }
 
 .carousel-inner .item img {
-    width: 100%;       /* Ocupa toda a largura do container pai */
-    height: 500px;     /* Mantém a altura que você gosta */
+    width: 100%; /*Ocupa toda a largura do container pai*/
+    height: 500px;  /* Mantém a altura*/
     object-fit: cover; /* Corta a imagem sem distorcer para preencher o espaço */
 }
+
 /* evitar  que o Bootstrap sobrescreva as configurações desejadas*/
 #meuCarrossel .carousel-inner .item img {
     width: 100% !important;
-    height: 500px !important; /* Aqui você define a altura fixa que deseja */
+    height: 500px !important; /* Define a altura fixa */
     object-fit: cover !important; /* Aqui garantimos que não haja distorção */
     object-position: center; /* Centraliza a parte da imagem que será exibida */
 }
-/* 5. LISTA DE PRODUTOS */
+
 h3 {
     color: #FF007F;
     font-size: 28px;
