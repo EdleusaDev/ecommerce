@@ -73,7 +73,8 @@ header {
     padding: 5px 10px;
 }
 #menu {
-    background-color: #FF007F;
+    background-color: black;
+    border-color: #FF007F;
     display: flex;
     justify-content: center;
     padding: 10px 0;
@@ -173,7 +174,7 @@ header {
     color: #000000 !important;
     font-weight: bold;
 }
-/* 3. MENU DE CATEGORIAS (ROSA) */
+/* 3. MENU*/
 #menu {
     border-top: 2px solid #FF007F;
     border-bottom: 2px solid #FF007F;
