@@ -161,14 +161,16 @@ header {
 
 #btnLogin {
     background-color: white;
-    color: #FF007F !important;
     font-size: 16px;
     font-weight: bold;
-    text-decoration: none !important;
     border: 1px solid #FF007F;
     padding: 8px 20px;
     border-radius: 5px;
     cursor: pointer;
+}
+#btnLogin a{
+    text-decoration: none !important;
+    color: #FF007F !important;
 }
 #btnIr:hover, #btnLogin:hover {
     background-color: #FF007F !important;
