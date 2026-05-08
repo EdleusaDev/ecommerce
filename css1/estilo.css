@@ -150,8 +150,8 @@ header {
 }
 
 #btnIr {
-    background-color: black;
-    color: #FF007F;
+    background-color: black !important;
+    color: #FF007F !important;
     border: 1px solid #FF007F;
     padding: 0 15px;
     height: 35px;
