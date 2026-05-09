@@ -44,6 +44,34 @@ function displayProducts() {
         productContainer.appendChild(productElement);
     });
 
+    //Filtra os produtos por categoria
+    function filtrar(categoriaSelecionada){
+        //1. identifica o carrossel e a vitrine
+         const carrossel  = document.getElementById('container-carrossel');
+         const vitrine  = document.getElementById('container-vitrine');
+         const listaDeSapatos  = document.getElementById('product-list');
+
+        //2. Se clicar em alguma opção do menu,esconde o carrossel e mostra a vitrine
+         carrossel.style.display = "none";
+         vitrine.style.display = "block";
+
+        //3. limpa a vitrine para os produtos não duplicarem
+        listaDeSapatos.innerHTML = "";
+
+        //4. Faz o filtro por categoria
+        const listaFiltrada = categoriaSelecionada === 'todos'
+                        ? produtos
+                        : produtos.filter(p => p.categoria === categoriaSelecionada);
+        //5. Manda para exibir
+        displayProducts(listaFiltrada);
+        
+    }
+    //volta à página inicial
+    function mostrarHome(){
+        const carrossel  = document.getElementById('container-carrossel').style.display="block";
+        document.getElementById('vitrine').style.display="none";
+    }
+
     //Formulario
     const loginForm = document.getElementById('loginForm'); 
     const mensagem = document.getElementById('mensagem');
