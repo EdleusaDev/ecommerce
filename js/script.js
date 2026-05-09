@@ -15,13 +15,13 @@ const products = [
     { id: 1, nome: 'Sandália Feminina', preco: 79.99, categoria: "sandalia", image: 'img/sandaliaouro.jpg' },
     { id: 2, nome: 'Sandalia Anabela preta', preco: 129.99, categoria: "sandalia", image: 'img/sandaliapreta.jpg' },
     { id: 3, nome: 'Sandalia Anabela Areia', preco: 129.99, categoria: "sandalia", image: 'img/sandaliaareia.jpg' },
-    { id: 4, nome: 'Sandalia Anabela caramelo', preco: 129.99, categoria: "sandalia", image: 'img/sandaliacaramelo.jpg' },
-    { id: 5, nome: 'Sandalia Sandra Dourada', preco: 129.99, categoria: "sandalia", image: 'img/sandaliaouro.jpg' },
-    { id: 6, nome: 'Sandalia Sandra Marrom', preco: 129.99, categoria: "sandalia", image: 'img/sandaliasandra.jpg' },
-    { id: 7, nome: 'Tamanco Feminino', preco: 89.99, image: 'img/tamanco.jpg' },
-    { id: 8, nome: 'Bota Marrom', preco: 199.99, image: 'img/bota.jpg' },
-    { id: 9, nome: 'Bota Marsala', preco: 199.99, image: 'img/bota_marsala.jpg' },
-    { id: 10, nome: 'Bota Marsala', preco: 199.99, image: 'img/bota_marsala.jpg' }
+    { id: 4, nome: 'Sandalia Anabela caramelo', preco: 129.99, categoria: "scarpin", image: 'img/sandaliacaramelo.jpg' },
+    { id: 5, nome: 'Sandalia Sandra Dourada', preco: 129.99, categoria: "rasteirinha", image: 'img/sandaliaouro.jpg' },
+    { id: 6, nome: 'Sandalia Sandra Marrom', preco: 129.99, categoria: "acessorio", image: 'img/sandaliasandra.jpg' },
+    { id: 7, nome: 'Tamanco Feminino', preco: 89.99, categoria: "tamanco", image: 'img/tamanco.jpg' },
+    { id: 8, nome: 'Bota Marrom', preco: 199.99, categoria: "bolsa", image: 'img/bota.jpg' },
+    { id: 9, nome: 'Bota Marsala', preco: 199.99, categoria: "chinelo", image: 'img/bota_marsala.jpg' },
+    { id: 10, nome: 'Bota Marsala', preco: 199.99, categoria: "bolsa", image: 'img/bota_marsala.jpg' }
 ];
 
 function displayProducts() {
@@ -47,8 +47,8 @@ function displayProducts() {
     //Filtra os produtos por categoria
     function filtrar(categoriaSelecionada){
         //1. identifica o carrossel e a vitrine
-         const carrossel  = document.getElementById('container-carrossel');
-         const vitrine  = document.getElementById('container-vitrine');
+         const carrossel  = document.getElementById('meuCarrossel');
+         const vitrine  = document.getElementById('vitrine');
          const listaDeSapatos  = document.getElementById('product-list');
 
         //2. Se clicar em alguma opção do menu,esconde o carrossel e mostra a vitrine
