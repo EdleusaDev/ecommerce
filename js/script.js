@@ -12,8 +12,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 const products = [
-    { id: 1, nome: 'Sandália Feminina', preco: 79.99, image: 'img/sandalia.jpg' },
-    { id: 2, nome: 'Sandalia Sandra', preco: 129.99, image: 'img/sandaliasandra.jpg' },
+    { id: 1, nome: 'Sandália Feminina', preco: 79.99, categoria: "sandalia", image: 'img/sandalia.jpg' },
+    { id: 2, nome: 'Sandalia Anabela preta', preco: 129.99, categoria: "sandalia", image: 'img/sandaliapreta.jpg' },
+    { id: 3, nome: 'Sandalia Anabela Areia', preco: 129.99, categoria: "sandalia", image: 'img/sandaliaareia.jpg' },
+    { id: 4, nome: 'Sandalia Anabela caramelo', preco: 129.99, categoria: "sandalia", image: 'img/sandaliacaramelo.jpg' },
+    { id: 5, nome: 'Sandalia Sandra Dourada', preco: 129.99, categoria: "sandalia", image: 'img/sandaliaouro.jpg' },
+    { id: 6, nome: 'Sandalia Sandra Marrom', preco: 129.99, categoria: "sandalia", image: 'img/sandaliasandra.jpg' },
     { id: 3, nome: 'Tamanco Feminino', preco: 89.99, image: 'img/tamanco.jpg' },
     { id: 4, nome: 'Bota Marrom', preco: 199.99, image: 'img/bota.jpg' },
     { id: 5, nome: 'Bota Marsala', preco: 199.99, image: 'img/bota_marsala.jpg' },
