@@ -115,7 +115,7 @@ function displayProducts(produtosParaExibir) {
         productContainer.appendChild(productElement);
     });
     window.comprarProduto = function(nome, preco){
-        const mensagem = ('olá! Vi no site e gostei do produto: *${nome}* (R$ ${preco.toFixed(2)}). Como faço para comprar?`;
+        const mensagem = ('olá! Vi no site e gostei do produto: *${nome}* (R$ ${preco.toFixed(2)}). Como faço para comprar?');
         const mensagemCodificada = encodeURIComponent(mensagem);
         const linkFinal = `https://wa.me/${meuWhatsApp}?text=${mensagemCodificada}`;
     window.open(linkFinal, '_blank');
