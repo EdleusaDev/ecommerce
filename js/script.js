@@ -1,4 +1,5 @@
 // 1. LISTA DE PRODUTOS (O seu "Banco de Dados")
+const meuWhatsapp = "71983288313";
 const products = [
     { id: 1, nome: 'Sandália Feminina', preco: 79.99, categoria: "sandalia", image: 'img/sandaliaouro.jpg' },
     { id: 2, nome: 'Sandalia Anabela preta', preco: 129.99, categoria: "sandalia", image: 'img/sandaliapreta.jpg' },
@@ -113,5 +114,12 @@ function displayProducts(produtosParaExibir) {
         `;
         productContainer.appendChild(productElement);
     });
+    window.comprarProduto = function(nome, preco){
+        const mensagem = ('olá! Vi no site e gostei do produto: *${nome}* (R$ ${preco.toFixed(2)}). Como faço para comprar?`;
+        const mensagemCodificada = encodeURIComponent(mensagem);
+        const linkFinal = `https://wa.me/${meuWhatsApp}?text=${mensagemCodificada}`;
+    window.open(linkFinal, '_blank');
+};
+    }
 }
 
