@@ -75,8 +75,6 @@ window.filtrar = function(categoriaSelecionada) {
         displayProducts(listaFiltrada);
     }
 };
-
-// 6. EXIBIÇÃO DOS PRODUTOS (VOLTANDO AO SEU ORIGINAL)
 function displayProducts(produtosParaExibir) {
     const productContainer = document.getElementById('product-list');
     if (!productContainer) return;
@@ -87,7 +85,7 @@ function displayProducts(produtosParaExibir) {
         const productElement = document.createElement('div');
         productElement.className = "col-xs-12 col-sm-6 col-md-4"; 
         
-        // Usei exatamente a sua estrutura original de HTML
+        // Estrutura 100% limpa. Se mudar algo aqui, é o seu CSS que está mandando.
         productElement.innerHTML = `
             <div class="thumbnail">
                 <img src="${product.image}" alt="${product.nome}">
