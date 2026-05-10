@@ -59,28 +59,40 @@ window.filtrar = function(categoriaSelecionada) {
         displayProducts(listaFiltrada);
     }
 };
-
 // 4. FUNÇÃO DE EXIBIR OS PRODUTOS (A "Fábrica")
 function displayProducts(produtosParaExibir) {
     const productContainer = document.getElementById('product-list');
     if (!productContainer) return;
 
-    // Limpa a vitrine antes de colocar os novos produtos
     productContainer.innerHTML = ""; 
 
     produtosParaExibir.forEach(product => {
-        // Criamos a div com a classe 'product' que você configurou no CSS
         const productElement = document.createElement('div');
-        productElement.classList.add('product'); 
+        // Mantém as colunas do Bootstrap
+        productElement.classList.add('col-xs-12', 'col-sm-6', 'col-md-4', 'product'); 
         
-        // Montamos o HTML seguindo a ordem do seu CSS: Imagem, Título, Preço e Botão
         productElement.innerHTML = `
-            <img src="${product.image}" alt="${product.nome}">
-            <h3>${product.nome}</h3>
-            <p>R$ ${product.preco.toFixed(2)}</p>
-            <button onclick="alert('Produto adicionado ao carrinho!')">Comprar</button>
+            <div class="thumbnail" style="height: 420px; display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 20px;">
+                
+                <div style="height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #f9f9f9;">
+                    <img src="${product.image}" alt="${product.nome}" 
+                         style="max-height: 100%; max-width: 100%; object-fit: contain;">
+                </div>
+
+                <div class="caption text-center" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+                    <h3 style="font-size: 16px; margin: 5px 0; height: 40px; overflow: hidden; line-height: 1.2;">
+                        ${product.nome}
+                    </h3>
+                    <p style="font-size: 18px; color: #333; font-weight: bold; margin: 5px 0;">
+                        R$ ${product.preco.toFixed(2)}
+                    </p>
+                    <button class="btn btn-primary" style="width: 100%;" onclick="alert('Adicionado!')">
+                        Comprar
+                    </button>
+                </div>
+            </div>
         `;
-        
         productContainer.appendChild(productElement);
     });
 }
+
