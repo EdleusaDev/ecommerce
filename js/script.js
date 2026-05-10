@@ -1,4 +1,4 @@
-// 1. CONFIGURAÇÃO (O 'W' e 'A' devem ser maiúsculos para bater com o código abaixo)
+// 1. CONFIGURAÇÃO
 const meuWhatsApp = "5571983288313"; 
 
 // 2. LISTA DE PRODUTOS
@@ -49,13 +49,12 @@ const products = [
 
 // 3. INICIALIZAÇÃO
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("Sistema Cled Calçados iniciado!");
     displayProducts(products); 
 });
 
-// 4. FUNÇÃO COMPRAR (A parte que faz o Zap abrir)
+// 4. FUNÇÃO COMPRAR (WHATSAPP)
 window.comprarProduto = function(nome, preco) {
-    const mensagem = `Olá! Vi no site e gostei do produto: *${nome}* (R$ ${preco.toFixed(2)}). Como faço para comprar?`;
+    const mensagem = `Olá Cleide! Gostei do produto: *${nome}* (R$ ${preco.toFixed(2)}). Como faço para comprar?`;
     const mensagemCodificada = encodeURIComponent(mensagem);
     const linkFinal = `https://wa.me/${meuWhatsApp}?text=${mensagemCodificada}`;
     window.open(linkFinal, '_blank');
@@ -77,7 +76,7 @@ window.filtrar = function(categoriaSelecionada) {
     }
 };
 
-// 6. EXIBIÇÃO DOS PRODUTOS
+// 6. EXIBIÇÃO DOS PRODUTOS (VISUAL ORIGINAL RESTAURADO)
 function displayProducts(produtosParaExibir) {
     const productContainer = document.getElementById('product-list');
     if (!productContainer) return;
@@ -89,15 +88,15 @@ function displayProducts(produtosParaExibir) {
         productElement.classList.add('col-xs-12', 'col-sm-6', 'col-md-4'); 
         
         productElement.innerHTML = `
-            <div class="thumbnail" style="height: 420px; display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 20px;">
-                <div style="height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden; background: #f9f9f9;">
-                    <img src="${product.image}" alt="${product.nome}" style="max-height: 100%; max-width: 100%; object-fit: contain;">
+            <div class="thumbnail">
+                <div style="height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
+                    <img src="${product.image}" alt="${product.nome}" style="max-height: 100%; object-fit: contain;">
                 </div>
-                <div class="caption text-center" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
-                    <h3 style="font-size: 16px; margin: 5px 0; height: 40px; overflow: hidden;">${product.nome}</h3>
-                    <p style="font-size: 18px; color: #333; font-weight: bold;">R$ ${product.preco.toFixed(2)}</p>
-                    <button class="btn btn-primary" style="width: 100%;" onclick="comprarProduto('${product.nome}', ${product.preco})">
-                        Comprar via WhatsApp
+                <div class="caption text-center">
+                    <h3>${product.nome}</h3>
+                    <p>R$ ${product.preco.toFixed(2)}</p>
+                    <button class="btn btn-primary" onclick="comprarProduto('${product.nome}', ${product.preco})">
+                        Comprar
                     </button>
                 </div>
             </div>
