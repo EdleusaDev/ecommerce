@@ -1,5 +1,7 @@
-// 1. LISTA DE PRODUTOS
-const meuWhatsApp = "5571983288313"; // Adicionei o 55 do Brasil
+// 1. CONFIGURAÇÃO (O 'W' e 'A' devem ser maiúsculos para bater com o código abaixo)
+const meuWhatsApp = "5571983288313"; 
+
+// 2. LISTA DE PRODUTOS
 const products = [
     { id: 1, nome: 'Sandália Feminina', preco: 79.99, categoria: "sandalia", image: 'img/sandaliaouro.jpg' },
     { id: 2, nome: 'Sandalia Anabela preta', preco: 129.99, categoria: "sandalia", image: 'img/sandaliapreta.jpg' },
@@ -42,25 +44,28 @@ const products = [
     { id: 39, nome: 'Pulseira Árvore', preco: 49.99, categoria: "acessorio", image: 'img/pulseira_arvore.jpg' },
     { id: 40, nome: 'Pulseira Prateada', preco: 49.99, categoria: "acessorio", image: 'img/pulseira_prateada.jpg' },
     { id: 41, nome: 'Depilador Facial', preco: 19.99, categoria: "acessorio", image: 'img/depilador_facial.jpg' },
-    { id: 42, nome: 'Colar de Aço Inox', preco: 89.99, categoria: "acessorio", image: 'img/colar_aco.jpg' }  
+    { id: 42, nome: 'Colar de Aço Inox', preco: 89.99, categoria: "acessorio", image: 'img/colar_aco.jpg' }
 ];
 
-// 2. INICIALIZAÇÃO
+// 3. INICIALIZAÇÃO
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("JavaScript carregado!");
-    const btnLogin = document.getElementById('btnLogin');
-    if (btnLogin) {
-        btnLogin.addEventListener('click', function() {
-            alert("Área de login em desenvolvimento.");
-        });
-    }
+    console.log("Sistema Cled Calçados iniciado!");
     displayProducts(products); 
 });
 
-// 3. FUNÇÃO FILTRAR
+// 4. FUNÇÃO COMPRAR (A parte que faz o Zap abrir)
+window.comprarProduto = function(nome, preco) {
+    const mensagem = `Olá! Vi no site e gostei do produto: *${nome}* (R$ ${preco.toFixed(2)}). Como faço para comprar?`;
+    const mensagemCodificada = encodeURIComponent(mensagem);
+    const linkFinal = `https://wa.me/${meuWhatsApp}?text=${mensagemCodificada}`;
+    window.open(linkFinal, '_blank');
+};
+
+// 5. FUNÇÃO FILTRAR
 window.filtrar = function(categoriaSelecionada) {
     const carrossel = document.getElementById('meuCarrossel');
     const vitrine = document.getElementById('vitrine');
+
     if (categoriaSelecionada === 'todos') {
         if(carrossel) carrossel.style.display = "block";
         if(vitrine) vitrine.style.display = "none";
@@ -72,15 +77,7 @@ window.filtrar = function(categoriaSelecionada) {
     }
 };
 
-// 4. FUNÇÃO COMPRAR (WHATSAPP)
-window.comprarProduto = function(nome, preco) {
-    const mensagem = `olá! Vi no site e gostei do produto: *${nome}* (R$ ${preco.toFixed(2)}). Como faço para comprar?`;
-    const mensagemCodificada = encodeURIComponent(mensagem);
-    const linkFinal = `https://wa.me/${meuWhatsApp}?text=${mensagemCodificada}`;
-    window.open(linkFinal, '_blank');
-};
-
-// 5. FUNÇÃO EXIBIR PRODUTOS
+// 6. EXIBIÇÃO DOS PRODUTOS
 function displayProducts(produtosParaExibir) {
     const productContainer = document.getElementById('product-list');
     if (!productContainer) return;
@@ -89,7 +86,7 @@ function displayProducts(produtosParaExibir) {
 
     produtosParaExibir.forEach(product => {
         const productElement = document.createElement('div');
-        productElement.classList.add('col-xs-12', 'col-sm-6', 'col-md-4', 'product'); 
+        productElement.classList.add('col-xs-12', 'col-sm-6', 'col-md-4'); 
         
         productElement.innerHTML = `
             <div class="thumbnail" style="height: 420px; display: flex; flex-direction: column; justify-content: space-between; margin-bottom: 20px;">
@@ -97,8 +94,8 @@ function displayProducts(produtosParaExibir) {
                     <img src="${product.image}" alt="${product.nome}" style="max-height: 100%; max-width: 100%; object-fit: contain;">
                 </div>
                 <div class="caption text-center" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
-                    <h3 style="font-size: 16px; margin: 5px 0; height: 40px; overflow: hidden; line-height: 1.2;">${product.nome}</h3>
-                    <p style="font-size: 18px; color: #333; font-weight: bold; margin: 5px 0;">R$ ${product.preco.toFixed(2)}</p>
+                    <h3 style="font-size: 16px; margin: 5px 0; height: 40px; overflow: hidden;">${product.nome}</h3>
+                    <p style="font-size: 18px; color: #333; font-weight: bold;">R$ ${product.preco.toFixed(2)}</p>
                     <button class="btn btn-primary" style="width: 100%;" onclick="comprarProduto('${product.nome}', ${product.preco})">
                         Comprar via WhatsApp
                     </button>
