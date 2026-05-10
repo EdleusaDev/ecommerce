@@ -63,27 +63,24 @@ window.filtrar = function(categoriaSelecionada) {
 // 4. FUNÇÃO DE EXIBIR OS PRODUTOS (A "Fábrica")
 function displayProducts(produtosParaExibir) {
     const productContainer = document.getElementById('product-list');
+    if (!productContainer) return;
 
-    if (!productContainer) {
-        console.error("Elemento 'product-list' não encontrado!");
-        return;
-    }
-
-    productContainer.innerHTML = ""; // Limpa a vitrine antes de mostrar novos
+    // Limpa a vitrine antes de colocar os novos produtos
+    productContainer.innerHTML = ""; 
 
     produtosParaExibir.forEach(product => {
+        // Criamos a div com a classe 'product' que você configurou no CSS
         const productElement = document.createElement('div');
-        productElement.classList.add('col-md-4'); // Mantém o padrão do seu Bootstrap
+        productElement.classList.add('product'); 
+        
+        // Montamos o HTML seguindo a ordem do seu CSS: Imagem, Título, Preço e Botão
         productElement.innerHTML = `
-            <div class="thumbnail" style="margin-bottom: 20px;">
-                <img src="${product.image}" alt="${product.nome}" style="width:100%">
-                <div class="caption text-center">
-                    <h3>${product.nome}</h3>
-                    <p><strong>R$ ${product.preco.toFixed(2)}</strong></p>
-                    <button class="btn btn-primary" onclick="alert('Adicionado ao carrinho!')">Comprar</button>
-                </div>
-            </div>
+            <img src="${product.image}" alt="${product.nome}">
+            <h3>${product.nome}</h3>
+            <p>R$ ${product.preco.toFixed(2)}</p>
+            <button onclick="alert('Produto adicionado ao carrinho!')">Comprar</button>
         `;
+        
         productContainer.appendChild(productElement);
     });
 }
