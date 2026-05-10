@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 4. FUNÇÃO COMPRAR (WHATSAPP)
 window.comprarProduto = function(nome, preco) {
-    const mensagem = "Olá Cleide! Gostei do produto: " + nome + " (R$ " + preco.toFixed(2) + "). Como faço para comprar?";
+    const mensagem = "Olá! Vi no site e gostei do produto: " + nome + " (R$ " + preco.toFixed(2) + "). Como faço para comprar?";
     const mensagemCodificada = encodeURIComponent(mensagem);
     const linkFinal = "https://wa.me/" + meuWhatsApp + "?text=" + mensagemCodificada;
     window.open(linkFinal, '_blank');
@@ -76,7 +76,7 @@ window.filtrar = function(categoriaSelecionada) {
     }
 };
 
-// 6. EXIBIÇÃO DOS PRODUTOS (SEM ESTILOS INVENTADOS)
+// 6. EXIBIÇÃO DOS PRODUTOS (VOLTANDO AO SEU ORIGINAL)
 function displayProducts(produtosParaExibir) {
     const productContainer = document.getElementById('product-list');
     if (!productContainer) return;
@@ -85,9 +85,9 @@ function displayProducts(produtosParaExibir) {
 
     produtosParaExibir.forEach(product => {
         const productElement = document.createElement('div');
-        // Usando apenas as classes do seu Bootstrap
         productElement.className = "col-xs-12 col-sm-6 col-md-4"; 
         
+        // Usei exatamente a sua estrutura original de HTML
         productElement.innerHTML = `
             <div class="thumbnail">
                 <img src="${product.image}" alt="${product.nome}">
