@@ -1,16 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-    console.log("JavaScript carregado!");
-    const btnLogin = document.getElementById('btnLogin');
-    if (btnLogin) {
-        btnLogin.addEventListener('click', function() {
-            console.log("Botão de login clicado!");
-        });
-    }
-    
-    // Carrega todos os produtos ao abrir a página
-    displayProducts(products); 
-});
-
+// 1. LISTA DE PRODUTOS (O seu "Banco de Dados")
 const products = [
     { id: 1, nome: 'Sandália Feminina', preco: 79.99, categoria: "sandalia", image: 'img/sandaliaouro.jpg' },
     { id: 2, nome: 'Sandalia Anabela preta', preco: 129.99, categoria: "sandalia", image: 'img/sandaliapreta.jpg' },
@@ -24,53 +12,65 @@ const products = [
     { id: 10, nome: 'Bota Marsala', preco: 199.99, categoria: "bolsa", image: 'img/bota_marsala.jpg' }
 ];
 
+// 2. O CÓDIGO DO INÍCIO (Login e Carregamento Inicial)
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("JavaScript carregado!");
+    
+    const btnLogin = document.getElementById('btnLogin');
+    if (btnLogin) {
+        btnLogin.addEventListener('click', function() {
+            console.log("Botão de login clicado!");
+            alert("Área de login em desenvolvimento.");
+        });
+    }
+    
+    // Inicia a vitrine vazia ou com produtos (como preferir)
+    displayProducts(products); 
+});
+
+// 3. FUNÇÃO FILTRAR (Global para o HTML encontrar)
+window.filtrar = function(categoriaSelecionada) {
+    console.log("Filtrando por: " + categoriaSelecionada);
+    
+    const carrossel = document.getElementById('meuCarrossel');
+    const vitrine = document.getElementById('vitrine');
+
+    if (categoriaSelecionada === 'todos') {
+        if(carrossel) carrossel.style.display = "block";
+        if(vitrine) vitrine.style.display = "none";
+    } else {
+        if(carrossel) carrossel.style.display = "none";
+        if(vitrine) vitrine.style.display = "block";
+
+        const listaFiltrada = products.filter(p => p.categoria === categoriaSelecionada);
+        displayProducts(listaFiltrada);
+    }
+};
+
+// 4. FUNÇÃO DE EXIBIR OS PRODUTOS (A "Fábrica")
 function displayProducts(produtosParaExibir) {
     const productContainer = document.getElementById('product-list');
 
     if (!productContainer) {
-        console.error("Elemento 'product-list' não encontrado no HTML!");
+        console.error("Elemento 'product-list' não encontrado!");
         return;
     }
 
-    // Limpa antes de desenhar
-    productContainer.innerHTML = "";
+    productContainer.innerHTML = ""; // Limpa a vitrine antes de mostrar novos
 
     produtosParaExibir.forEach(product => {
         const productElement = document.createElement('div');
-        productElement.classList.add('product');
+        productElement.classList.add('col-md-4'); // Mantém o padrão do seu Bootstrap
         productElement.innerHTML = `
-            <img src="${product.image}" alt="${product.nome}">
-            <h3>${product.nome}</h3>
-            <p>R$ ${product.preco.toFixed(2)}</p>
-            <button onclick="addToCart(${product.id}, '${product.nome}', ${product.preco})">Comprar</button>
+            <div class="thumbnail" style="margin-bottom: 20px;">
+                <img src="${product.image}" alt="${product.nome}" style="width:100%">
+                <div class="caption text-center">
+                    <h3>${product.nome}</h3>
+                    <p><strong>R$ ${product.preco.toFixed(2)}</strong></p>
+                    <button class="btn btn-primary" onclick="alert('Adicionado ao carrinho!')">Comprar</button>
+                </div>
+            </div>
         `;
         productContainer.appendChild(productElement);
     });
-}
-
-// AGORA A FUNÇÃO FILTRAR ESTÁ SOLTA E VISÍVEL!
-function filtrar(categoriaSelecionada){
-    const carrossel = document.getElementById('meuCarrossel');
-    const vitrine = document.getElementById('vitrine');
-    const listaDeSapatos = document.getElementById('product-list');
-
-    if (categoriaSelecionada === 'todos') {
-        carrossel.style.display = "block";
-        vitrine.style.display = "none";
-    } else {
-        carrossel.style.display = "none";
-        vitrine.style.display = "block";
-
-        listaDeSapatos.innerHTML = "";
-
-        // Usando 'products' que é o nome da sua lista lá em cima
-        const listaFiltrada = products.filter(p => p.categoria === categoriaSelecionada);
-        
-        displayProducts(listaFiltrada);
-    }
-}
-
-function mostrarHome(){
-    document.getElementById('meuCarrossel').style.display = "block";
-    document.getElementById('vitrine').style.display = "none";
 }
