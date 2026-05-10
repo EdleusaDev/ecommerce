@@ -22,7 +22,7 @@ const products = [
     { id: 20, nome: 'Usaflex Branco', preco: 79.99, categoria: "chinelo", image: 'img/usaflex_branco.jpg' },
     { id: 21, nome: 'Usaflex Lilás', preco: 79.99, categoria: "chinelo", image: 'img/usaflex_lilas.jpg' },
     { id: 22, nome: 'Usaflex Preto', preco: 79.99, categoria: "chinelo", image: 'img/usaflex_preto.jpg' },
-    { id: 23, nome: 'Usaflex Azul', preco: 79.99, categoria: "chinelo", image: 'img/usaflex_azul.jpg' },
+    { id: 23, nome: 'Usaflex Azul', preco: 79.99, categoria: "chinelo", image: 'img/usaflex_azul.jpg' }
 ];
 
 // 2. O CÓDIGO DO INÍCIO (Login e Carregamento Inicial)
