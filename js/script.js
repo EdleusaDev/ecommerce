@@ -1,7 +1,7 @@
 // 1. CONFIGURAÇÃO
 const meuWhatsApp = "5571983288313"; 
 
-// 2. LISTA DE PRODUTOS (Seus 42 itens preservados)
+// 2. LISTA DE PRODUTOS (Seus 42 produtos preservados)
 const products = [
     { id: 1, nome: 'Sandália Feminina', preco: 79.99, categoria: "sandalia", image: 'img/sandaliaouro.jpg' },
     { id: 2, nome: 'Sandalia Anabela preta', preco: 129.99, categoria: "sandalia", image: 'img/sandaliapreta.jpg' },
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 4. FUNÇÃO COMPRAR (WHATSAPP)
 window.comprarProduto = function(nome, preco) {
-    const mensagem = "Olá! Vi no site e gostei do produto: " + nome + " (R$ " + preco.toFixed(2) + "). Como faço para comprar?";
+    const mensagem = "Olá Edleusa! Gostei do produto: " + nome + " (R$ " + preco.toFixed(2) + "). Como faço para comprar?";
     const mensagemCodificada = encodeURIComponent(mensagem);
     const linkFinal = "https://wa.me/" + meuWhatsApp + "?text=" + mensagemCodificada;
     window.open(linkFinal, '_blank');
@@ -68,6 +68,7 @@ window.filtrar = function(categoriaSelecionada) {
     if (categoriaSelecionada === 'todos') {
         if(carrossel) carrossel.style.display = "block";
         if(vitrine) vitrine.style.display = "none";
+        displayProducts(products);
     } else {
         if(carrossel) carrossel.style.display = "none";
         if(vitrine) vitrine.style.display = "block";
@@ -75,6 +76,8 @@ window.filtrar = function(categoriaSelecionada) {
         displayProducts(listaFiltrada);
     }
 };
+
+// 6. EXIBIÇÃO DOS PRODUTOS (Fiel à sua estrutura original)
 function displayProducts(produtosParaExibir) {
     const productContainer = document.getElementById('product-list');
     if (!productContainer) return;
@@ -85,7 +88,6 @@ function displayProducts(produtosParaExibir) {
         const productElement = document.createElement('div');
         productElement.className = "col-xs-12 col-sm-6 col-md-4"; 
         
-        // Estrutura 100% limpa. Se mudar algo aqui, é o seu CSS que está mandando.
         productElement.innerHTML = `
             <div class="thumbnail">
                 <img src="${product.image}" alt="${product.nome}">
