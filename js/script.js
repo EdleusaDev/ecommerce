@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript carregado!");
-     const btnLogin = document.getElementById('btnLogin');
-        if (btnLogin) {
-            btnLogin.addEventListener('click', function() {
-                console.log("Botão de login clicado!");
-                // Adicione a lógica que você deseja para o botão de login
-            });
-        }
+    const btnLogin = document.getElementById('btnLogin');
+    if (btnLogin) {
+        btnLogin.addEventListener('click', function() {
+            console.log("Botão de login clicado!");
+        });
+    }
     
-        displayProducts();  // Essa função vai carregar os produtos (já definida no seu script)
-    });
+    // Carrega todos os produtos ao abrir a página
+    displayProducts(products); 
+});
 
 const products = [
     { id: 1, nome: 'Sandália Feminina', preco: 79.99, categoria: "sandalia", image: 'img/sandaliaouro.jpg' },
@@ -24,7 +24,7 @@ const products = [
     { id: 10, nome: 'Bota Marsala', preco: 199.99, categoria: "bolsa", image: 'img/bota_marsala.jpg' }
 ];
 
-function displayProducts() {
+function displayProducts(produtosParaExibir) {
     const productContainer = document.getElementById('product-list');
 
     if (!productContainer) {
@@ -32,7 +32,10 @@ function displayProducts() {
         return;
     }
 
-    products.forEach(product => {
+    // Limpa antes de desenhar
+    productContainer.innerHTML = "";
+
+    produtosParaExibir.forEach(product => {
         const productElement = document.createElement('div');
         productElement.classList.add('product');
         productElement.innerHTML = `
@@ -43,61 +46,31 @@ function displayProducts() {
         `;
         productContainer.appendChild(productElement);
     });
+}
 
-    //Filtra os produtos por categoria
-    function filtrar(categoriaSelecionada){
-        //1. identifica o carrossel e a vitrine
-         const carrossel  = document.getElementById('meuCarrossel');
-         const vitrine  = document.getElementById('vitrine');
-         const listaDeSapatos  = document.getElementById('product-list');
+// AGORA A FUNÇÃO FILTRAR ESTÁ SOLTA E VISÍVEL!
+function filtrar(categoriaSelecionada){
+    const carrossel = document.getElementById('meuCarrossel');
+    const vitrine = document.getElementById('vitrine');
+    const listaDeSapatos = document.getElementById('product-list');
 
-        //2. Se clicar em alguma opção do menu,esconde o carrossel e mostra a vitrine
-         carrossel.style.display = "none";
-         vitrine.style.display = "block";
+    if (categoriaSelecionada === 'todos') {
+        carrossel.style.display = "block";
+        vitrine.style.display = "none";
+    } else {
+        carrossel.style.display = "none";
+        vitrine.style.display = "block";
 
-        //3. limpa a vitrine para os produtos não duplicarem
         listaDeSapatos.innerHTML = "";
 
-        //4. Faz o filtro por categoria
-        const listaFiltrada = categoriaSelecionada === 'todos'
-                        ? produtos
-                        : produtos.filter(p => p.categoria === categoriaSelecionada);
-        //5. Manda para exibir
-        displayProducts(listaFiltrada);
+        // Usando 'products' que é o nome da sua lista lá em cima
+        const listaFiltrada = products.filter(p => p.categoria === categoriaSelecionada);
         
-    }
-    //volta à página inicial
-    function mostrarHome(){
-        const carrossel  = document.getElementById('container-carrossel').style.display="block";
-        document.getElementById('vitrine').style.display="none";
-    }
-
-    //Formulario
-    const loginForm = document.getElementById('loginForm'); 
-    const mensagem = document.getElementById('mensagem');
-
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(event) {
-            event.preventDefault(); // Evita que a página recarregue ao enviar o formulário
-            
-            // Pegando os valores digitados pelo usuário
-            const email = document.getElementById('email').value;
-            const senha = document.getElementById('senha').value;
-
-            // Usuário e senha cadastrados (simulação)
-            const usuarioCorreto = "teste@email.com";
-            const senhaCorreta = "123456";
-
-            // Verificação do login
-            if (email === usuarioCorreto && senha === senhaCorreta) {
-                mensagem.innerText = "✅ Login realizado com sucesso!";
-                mensagem.style.color = "green";
-                console.log("Usuário logado!");
-            } else {
-                mensagem.innerText = "❌ E-mail ou senha incorretos!";
-                mensagem.style.color = "red";
-            }
-        });
+        displayProducts(listaFiltrada);
     }
 }
 
+function mostrarHome(){
+    document.getElementById('meuCarrossel').style.display = "block";
+    document.getElementById('vitrine').style.display = "none";
+}
