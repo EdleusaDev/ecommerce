@@ -1,7 +1,7 @@
 // 1. CONFIGURAÇÃO
 const meuWhatsApp = "5571983288313"; 
 
-// 2. LISTA DE PRODUTOS
+// 2. LISTA DE PRODUTOS (Seus 42 itens preservados)
 const products = [
     { id: 1, nome: 'Sandália Feminina', preco: 79.99, categoria: "sandalia", image: 'img/sandaliaouro.jpg' },
     { id: 2, nome: 'Sandalia Anabela preta', preco: 129.99, categoria: "sandalia", image: 'img/sandaliapreta.jpg' },
@@ -54,9 +54,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // 4. FUNÇÃO COMPRAR (WHATSAPP)
 window.comprarProduto = function(nome, preco) {
-    const mensagem = `Olá Cleide! Gostei do produto: *${nome}* (R$ ${preco.toFixed(2)}). Como faço para comprar?`;
+    const mensagem = "Olá Cleide! Gostei do produto: " + nome + " (R$ " + preco.toFixed(2) + "). Como faço para comprar?";
     const mensagemCodificada = encodeURIComponent(mensagem);
-    const linkFinal = `https://wa.me/${meuWhatsApp}?text=${mensagemCodificada}`;
+    const linkFinal = "https://wa.me/" + meuWhatsApp + "?text=" + mensagemCodificada;
     window.open(linkFinal, '_blank');
 };
 
@@ -76,7 +76,7 @@ window.filtrar = function(categoriaSelecionada) {
     }
 };
 
-// 6. EXIBIÇÃO DOS PRODUTOS (VISUAL ORIGINAL RESTAURADO)
+// 6. EXIBIÇÃO DOS PRODUTOS (SEM ESTILOS INVENTADOS)
 function displayProducts(produtosParaExibir) {
     const productContainer = document.getElementById('product-list');
     if (!productContainer) return;
@@ -85,13 +85,12 @@ function displayProducts(produtosParaExibir) {
 
     produtosParaExibir.forEach(product => {
         const productElement = document.createElement('div');
-        productElement.classList.add('col-xs-12', 'col-sm-6', 'col-md-4'); 
+        // Usando apenas as classes do seu Bootstrap
+        productElement.className = "col-xs-12 col-sm-6 col-md-4"; 
         
         productElement.innerHTML = `
             <div class="thumbnail">
-                <div style="height: 250px; display: flex; align-items: center; justify-content: center; overflow: hidden;">
-                    <img src="${product.image}" alt="${product.nome}" style="max-height: 100%; object-fit: contain;">
-                </div>
+                <img src="${product.image}" alt="${product.nome}">
                 <div class="caption text-center">
                     <h3>${product.nome}</h3>
                     <p>R$ ${product.preco.toFixed(2)}</p>
