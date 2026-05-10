@@ -42,7 +42,7 @@ const products = [
     { id: 39, nome: 'Pulseira Árvore', preco: 49.99, categoria: "acessorio", image: 'img/pulseira_arvore.jpg' },
     { id: 40, nome: 'Pulseira Prateada', preco: 49.99, categoria: "acessorio", image: 'img/pulseira_prateada.jpg' },
     { id: 41, nome: 'Depilador Facial', preco: 19.99, categoria: "acessorio", image: 'img/depilador_facial.jpg' },
-    { id: 42, nome: 'Colar de Aço Inox', preco: 89.99, categoria: "acessorio", image: 'img/colar_aco.jpg' },   
+    { id: 42, nome: 'Colar de Aço Inox', preco: 89.99, categoria: "acessorio", image: 'img/colar_aco.jpg' }  
 ];
 
 // 2. O CÓDIGO DO INÍCIO (Login e Carregamento Inicial)
