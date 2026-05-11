@@ -91,7 +91,7 @@ function displayProducts(produtosParaExibir) {
             <img src="${product.image}" alt="${product.nome}">
             <h4 style="color: white; margin-top: 10px; font-size: 16px;">${product.nome}</h4>
             <p>R$ ${product.preco.toFixed(2)}</p>
-            <button style="width: 50px ; padding: 10px 20px;" onclick="comprarProduto('${product.nome}', ${product.preco})">
+            <button style="width: 50% ; padding: 10px 20px;" onclick="comprarProduto('${product.nome}', ${product.preco})">
                 COMPRAR
             </button>
         `;
