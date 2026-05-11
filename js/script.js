@@ -1,7 +1,7 @@
 // 1. CONFIGURAÇÃO
 const meuWhatsApp = "5571983288313"; 
 
-// 2. LISTA DE PRODUTOS (Seus 42 produtos preservados)
+// 2. LISTA DE PRODUTOS
 const products = [
     { id: 1, nome: 'Sandália Feminina', preco: 79.99, categoria: "sandalia", image: 'img/sandaliaouro.jpg' },
     { id: 2, nome: 'Sandalia Anabela preta', preco: 129.99, categoria: "sandalia", image: 'img/sandaliapreta.jpg' },
@@ -77,7 +77,7 @@ window.filtrar = function(categoriaSelecionada) {
     }
 };
 
-// 6. EXIBIÇÃO DOS PRODUTOS (Fiel à sua estrutura original)
+// 6. EXIBIÇÃO DOS PRODUTOS (AJUSTADA AO SEU CSS)
 function displayProducts(produtosParaExibir) {
     const productContainer = document.getElementById('product-list');
     if (!productContainer) return;
@@ -85,20 +85,17 @@ function displayProducts(produtosParaExibir) {
     productContainer.innerHTML = ""; 
 
     produtosParaExibir.forEach(product => {
+        // Criamos a div com a sua classe ".product"
         const productElement = document.createElement('div');
-        productElement.className = "col-xs-12 col-sm-6 col-md-4"; 
+        productElement.className = "product"; 
         
         productElement.innerHTML = `
-            <div class="thumbnail">
-                <img src="${product.image}" alt="${product.nome}">
-                <div class="caption text-center">
-                    <h3>${product.nome}</h3>
-                    <p>R$ ${product.preco.toFixed(2)}</p>
-                    <button class="btn btn-primary" onclick="comprarProduto('${product.nome}', ${product.preco})">
-                        Comprar
-                    </button>
-                </div>
-            </div>
+            <img src="${product.image}" alt="${product.nome}">
+            <h4 style="color: white; margin-top: 10px; font-size: 16px;">${product.nome}</h4>
+            <p>R$ ${product.preco.toFixed(2)}</p>
+            <button onclick="comprarProduto('${product.nome}', ${product.preco})">
+                COMPRAR
+            </button>
         `;
         productContainer.appendChild(productElement);
     });
