@@ -76,8 +76,7 @@ window.filtrar = function(categoriaSelecionada) {
         displayProducts(listaFiltrada);
     }
 };
-
-// 6. EXIBIÇÃO DOS PRODUTOS (AJUSTADA AO SEU CSS)
+// 6. EXIBIÇÃO DOS PRODUTOS (BOTÃO COM TAMANHO AJUSTADO)
 function displayProducts(produtosParaExibir) {
     const productContainer = document.getElementById('product-list');
     if (!productContainer) return;
@@ -85,7 +84,6 @@ function displayProducts(produtosParaExibir) {
     productContainer.innerHTML = ""; 
 
     produtosParaExibir.forEach(product => {
-        // Criamos a div com a sua classe ".product"
         const productElement = document.createElement('div');
         productElement.className = "product"; 
         
@@ -93,10 +91,11 @@ function displayProducts(produtosParaExibir) {
             <img src="${product.image}" alt="${product.nome}">
             <h4 style="color: white; margin-top: 10px; font-size: 16px;">${product.nome}</h4>
             <p>R$ ${product.preco.toFixed(2)}</p>
-            <button onclick="comprarProduto('${product.nome}', ${product.preco})">
+            <button style="width: auto; padding: 10px 20px;" onclick="comprarProduto('${product.nome}', ${product.preco})">
                 COMPRAR
             </button>
         `;
         productContainer.appendChild(productElement);
     });
 }
+
