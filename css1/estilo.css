@@ -240,31 +240,57 @@ h3 {
     text-align: center;
 }
 
-/* 3. O SEGREDO: Padronizar o espaço da imagem */
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    align-items: stretch; /* Adicionado para igualar a altura dos cards */
+}
+
+.product {
+    width: 260px;
+    border: 1px solid #333;
+    padding: 15px;
+    text-align: center;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    /* Mantendo suas cores e adicionando o alinhamento flex */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
 .product img {
     width: 100%;
-    height: 180px;      /* Altura fixa para o espaço da foto */
-    object-fit: contain; /* Garante que a foto não estique nem amasse */
+    height: 180px;         /* Espaço fixo para a imagem não empurrar o botão */
+    object-fit: contain;    /* Mantém a proporção da foto sem cortar */
+    border-radius: 5px;
+    background-color: #000; 
+    margin-bottom: 10px;
+}
+
+.product p {
+    color: #FF007F !important; /* Seu rosa original */
+    font-weight: bold;
+    font-size: 18px;
     margin-bottom: 15px;
-    background-color: #000; /* Fundo preto para preencher se a foto for pequena */
 }
 
-/* 4. Garante que o botão não estique e fique alinhado */
 .product button {
-    width: auto !important; /* Respeita o tamanho do texto */
+    background-color: #FF007F; /* Seu rosa original */
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto !important; /* Para o botão não ficar gigante */
     align-self: center;     /* Centraliza o botão */
-    padding: 10px 20px;
+    font-weight: bold;
+    margin-top: auto;       /* A "mola" que alinha todos os botões no rodapé */
 }
-
-/* 6. RODAPÉ */
-#rodape {
-    margin-top: auto;
-    text-align: center;
-    color: #fff;
-    font-size: 13px;
-    padding: 30px;
-}
-
 /* 7. RESPONSIVIDADE */
 @media (max-width: 768px) {
     .linha-topo {
