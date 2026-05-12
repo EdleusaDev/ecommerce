@@ -220,40 +220,40 @@ h3 {
     text-align: center;
 }
 
+/* 1. Garante que todos os cards na mesma linha tenham a mesma altura */
 #product-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 25px;
-    justify-content: center;
-    padding: 20px;
-    width: 100%;
+    align-items: stretch; /* Isso faz as caixinhas ficarem iguais */
 }
 
+/* 2. Ajuste na classe .product que já tem */
 .product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empurra o botão para o rodapé do card */
     width: 260px;
+    background-color: #1a1a1a;
     border: 1px solid #333;
     padding: 15px;
-    text-align: center;
-    background-color: #1a1a1a;
     border-radius: 8px;
+    text-align: center;
 }
 
+/* 3. O SEGREDO: Padronizar o espaço da imagem */
 .product img {
     width: 100%;
-    height: auto;
-    border-radius: 5px;
+    height: 180px;      /* Altura fixa para o espaço da foto */
+    object-fit: contain; /* Garante que a foto não estique nem amasse */
+    margin-bottom: 15px;
+    background-color: #000; /* Fundo preto para preencher se a foto for pequena */
 }
 
+/* 4. Garante que o botão não estique e fique alinhado */
 .product button {
-    background-color: #FF007F;
-    color: black;
-    border: none;
-    padding: 12px;
-    margin-top: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-weight: bold;
+    width: auto !important; /* Respeita o tamanho do texto */
+    align-self: center;     /* Centraliza o botão */
+    padding: 10px 20px;
 }
 
 /* 6. RODAPÉ */
