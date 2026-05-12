@@ -291,6 +291,15 @@ h3 {
     font-weight: bold;
     margin-top: auto;       /* A "mola" que alinha todos os botões no rodapé */
 }
+#rodape {
+     color: #FFF;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 1px solid #FF007F; /* Linha rosa para combinar com o menu */
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+}
 /* 7. RESPONSIVIDADE */
 @media (max-width: 768px) {
     .linha-topo {
