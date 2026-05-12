@@ -292,7 +292,7 @@ h3 {
     margin-top: auto;       /* A "mola" que alinha todos os botões no rodapé */
 }
 #rodape {
-     color: #FFF;
+    color: #FFF;
     padding: 30px 20px;
     margin-top: 50px;
     border-top: 1px solid #FF007F; /* Linha rosa para combinar com o menu */
@@ -317,3 +317,4 @@ h3 {
         height: 300px; /* Menor no celular para ficar proporcional */
     }
 }
+
