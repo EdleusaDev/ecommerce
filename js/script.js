@@ -76,7 +76,7 @@ window.executarBusca = function() {
      else {
         if(carrossel) carrossel.style.display = "none";
         if(vitrine) vitrine.style.display = "block";
-        alert('Produto não encontrado!');
+        alert("Produto não encontrado!");
 
     displayProducts(resultados);
 };
