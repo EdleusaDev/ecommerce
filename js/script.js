@@ -71,10 +71,24 @@ window.executarBusca = function() {
     const carrossel = document.getElementById('meuCarrossel');
     const vitrine = document.getElementById('vitrine');
 
+   const resultados = products.filter(p => 
+    p.nome.toLowerCase().includes(termoBusca)
+);
+
+// Agora vem a lógica de decisão:
+if (resultados.length > 0) {
+    // SE o tamanho da lista de resultados for MAIOR que zero (Achou algo!)
     if(carrossel) carrossel.style.display = "none";
     if(vitrine) vitrine.style.display = "block";
     
     displayProducts(resultados);
+} 
+else {
+  if (resultados.length === 0) {
+    document.getElementById('product-list').innerHTML = 
+        "<h3 style='color: white; text-align: center;'>Produto não encontrado!👠</h3>";
+}
+    }
 };
 
 // Adicionar evento para buscar ao apertar "Enter" no teclado
