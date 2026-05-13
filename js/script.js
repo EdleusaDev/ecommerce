@@ -73,6 +73,10 @@ window.executarBusca = function() {
 
     if(carrossel) carrossel.style.display = "none";
     if(vitrine) vitrine.style.display = "block";
+     else {
+        if(carrossel) carrossel.style.display = "none";
+        if(vitrine) vitrine.style.display = "block";
+        alert('Produto não encontrado!');
 
     displayProducts(resultados);
 };
