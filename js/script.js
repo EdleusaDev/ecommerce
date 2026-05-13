@@ -81,7 +81,7 @@ window.executarBusca = function() {
         displayProducts(resultados);
     } else {
        `<div style="color: white; text-align: center; width: 100%; min-height: 400px; padding-top: 50px;">
-            <h3>Produto não encontrado! 👠</h3>
+            <h3>Produto não encontrado! </h3>
             <p>Tente buscar por outro termo ou categoria.</p>
         </div>`;
     }
