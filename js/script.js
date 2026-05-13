@@ -52,6 +52,15 @@ document.addEventListener("DOMContentLoaded", function () {
     displayProducts(products); 
 });
 
+//FUNÇÃO DE LOGIN
+window.fazerLogin = function() {
+    const usuario = prompt("Digite seu e-mail ou nome de usuário:");
+    if (usuario) {
+        alert("Bem-vinda, " + usuario + "! Login realizado com sucesso (Simulação).");
+        document.getElementById('btnLogin').innerText = "SAIR";
+    }
+};
+
 // FUNÇÃO DE BUSCA
 window.executarBusca = function() {
     const termoBusca = document.getElementById('busca').value.toLowerCase();
