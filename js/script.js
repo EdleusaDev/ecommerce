@@ -70,9 +70,6 @@ window.executarBusca = function() {
 
     const carrossel = document.getElementById('meuCarrossel');
     const vitrine = document.getElementById('vitrine');
-
-   const resultados = products.filter(p => 
-    p.nome.toLowerCase().includes(termoBusca)
 );
 
 // Agora vem a lógica de decisão:
@@ -84,10 +81,8 @@ if (resultados.length > 0) {
     displayProducts(resultados);
 } 
 else {
-  if (resultados.length === 0) {
-    document.getElementById('product-list').innerHTML = 
+      document.getElementById('product-list').innerHTML = 
         "<h3 style='color: white; text-align: center;'>Produto não encontrado!👠</h3>";
-}
     }
 };
 
