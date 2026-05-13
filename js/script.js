@@ -64,28 +64,26 @@ window.fazerLogin = function() {
 // FUNÇÃO DE BUSCA
 window.executarBusca = function() {
     const termoBusca = document.getElementById('busca').value.toLowerCase();
+    const carrossel = document.getElementById('meuCarrossel');
+    const vitrine = document.getElementById('vitrine');
+
+    // Ações obrigatórias: Se buscou, a vitrine assume o lugar do carrossel
+    if(carrossel) carrossel.style.display = "none";
+    if(vitrine) vitrine.style.display = "block";
+
+    // Agora sim, a filtragem (apenas UMA vez)
     const resultados = products.filter(p => 
         p.nome.toLowerCase().includes(termoBusca)
     );
 
-    const carrossel = document.getElementById('meuCarrossel');
-    const vitrine = document.getElementById('vitrine');
-);
-
-// Agora vem a lógica de decisão:
-if (resultados.length > 0) {
-    // SE o tamanho da lista de resultados for MAIOR que zero (Achou algo!)
-    if(carrossel) carrossel.style.display = "none";
-    if(vitrine) vitrine.style.display = "block";
-    
-    displayProducts(resultados);
-} 
-else {
-      document.getElementById('product-list').innerHTML = 
-        "<h3 style='color: white; text-align: center;'>Produto não encontrado!👠</h3>";
+    // Decisão final baseada no resultado
+    if (resultados.length > 0) {
+        displayProducts(resultados);
+    } else {
+        document.getElementById('product-list').innerHTML = 
+            "<h3 style='color: white; text-align: center; width: 100%;'>Produto não encontrado!👠</h3>";
     }
 };
-
 // Adicionar evento para buscar ao apertar "Enter" no teclado
 document.getElementById('busca')?.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
