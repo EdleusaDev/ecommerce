@@ -52,6 +52,29 @@ document.addEventListener("DOMContentLoaded", function () {
     displayProducts(products); 
 });
 
+// FUNÇÃO DE BUSCA
+window.executarBusca = function() {
+    const termoBusca = document.getElementById('busca').value.toLowerCase();
+    const resultados = products.filter(p => 
+        p.nome.toLowerCase().includes(termoBusca)
+    );
+
+    const carrossel = document.getElementById('meuCarrossel');
+    const vitrine = document.getElementById('vitrine');
+
+    if(carrossel) carrossel.style.display = "none";
+    if(vitrine) vitrine.style.display = "block";
+
+    displayProducts(resultados);
+};
+
+// Adicionar evento para buscar ao apertar "Enter" no teclado
+document.getElementById('busca')?.addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+        executarBusca();
+    }
+});
+
 // 4. FUNÇÃO COMPRAR (WHATSAPP)
 window.comprarProduto = function(nome, preco) {
     const mensagem = "Olá Edleusa! Gostei do produto: " + nome + " (R$ " + preco.toFixed(2) + "). Como faço para comprar?";
