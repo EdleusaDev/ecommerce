@@ -80,13 +80,12 @@ window.executarBusca = function() {
     if (resultados.length > 0) {
         displayProducts(resultados);
     } else {
-        // Indica o elemento e usar o .innerHTML para ele "escrever" na tela
-        document.getElementById('product-list').innerHTML = `
-            <div style="color: white; text-align: center; width: 100%; min-height: 400px; padding-top: 50px;">
-                <h3>Produto não encontrado!</h3>
-                <p>Tente buscar por outro termo ou categoria.</p>
-            </div>`;
-    }
+    document.getElementById('product-list').innerHTML = 
+        `<div style="color: white; text-align: center; width: 100%; min-height: 400px; padding-top: 50px;">
+            <h3>Produto não encontrado! 👠</h3>
+            <p>Tente buscar por outro termo ou categoria.</p>
+        </div>`;
+   }
 };
 // Adicionar evento para buscar ao apertar "Enter" no teclado
 document.getElementById('busca')?.addEventListener('keypress', function (e) {
