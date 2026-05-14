@@ -1,10 +1,9 @@
-/* 1. CONFIGURAÇÕES GERAIS */
-* {
+/* 1.CONFIGURAÇÕES GERAIS */
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
 body {
     background-color: black;
     font-family: Arial, Helvetica, sans-serif;
@@ -12,10 +11,10 @@ body {
     flex-direction: column;
     min-height: 100vh;
     width: 100%;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Evita a barra de rolagem lateral */
 }
 
-/* 2. CABEÇALHO */
+/* 2. CABEÇALHO (Logo, Busca e Login) */
 header {
     width: 100%;
     background-color: black;
@@ -27,13 +26,20 @@ header {
     flex-direction: column;
     width: 100%;
 }
-
 .linha-topo {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     padding: 20px 5%;
     width: 100%;
+    background-color: #000;
+}
+
+#logomarca {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 #logomarca h1 {
@@ -49,12 +55,68 @@ header {
     margin-top: 5px;
     text-transform: uppercase;
     letter-spacing: 1px;
+    font-weight: normal;
 }
 
 .acoes-usuario {
     display: flex;
     align-items: center;
     gap: 15px;
+}
+
+#pesquisa {
+    display: flex;
+}
+
+#busca {
+    height: 35px;
+    padding: 5px 10px;
+}
+#menu {
+    background-color: black;
+    border-color: #FF007F;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    gap: 25px;
+}
+
+#menu a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#meuCarrossel {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-inner img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 0;
+}
+
+.product {
+    text-align: center;
+    width: 250px;
+}
+
+.product p {
+    color: #FF007F !important;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 #pesquisa {
@@ -66,7 +128,7 @@ header {
 }
 
 #busca {
-    border: none;
+    border: 1px solid #FF007F;
     padding: 10px;
     width: 250px;
     outline: none;
@@ -76,7 +138,7 @@ header {
 #btnIr {
     background-color: black !important;
     color: #FF007F !important;
-    border: none;
+    border: 1px solid #FF007F;
     padding: 0 15px;
     height: 35px;
     cursor: pointer;
@@ -93,8 +155,12 @@ header {
     border-radius: 5px;
     cursor: pointer;
 }
-
-/* 3. MENU */
+btnIr:hover, #btnLogin:hover {
+    background-color: #FF007F !important;
+    color: #000000 !important;
+    font-weight: bold;
+}
+/* 3. MENU*/
 #menu {
     border-top: 2px solid #FF007F;
     border-bottom: 2px solid #FF007F;
@@ -112,6 +178,8 @@ header {
     color: white;
     font-weight: bold;
     font-size: 17px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     transition: 0.3s;
 }
 
@@ -119,21 +187,57 @@ header {
     color: #FF007F;
 }
 
-/* 4. CONTEÚDO (O que faz o rodapé descer) */
-#meuCarrossel, #vitrine {
-    flex-shrink: 0;
+/* 4. CARROSSEL (CORREÇÃO DO TAMANHO) */
+#meuCarrossel {
+    width: 100% !important;
+    align-self: stretch; /* Obriga o carrossel a esticar até as bordas */
+    margin: 0;
+    padding: 0;
 }
 
-/* Criamos um espaço flexível para empurrar o rodapé */
-#vitrine {
-    flex-grow: 1; 
-    display: block; 
+.carousel-inner {
+    width: 100%;
 }
 
 .carousel-inner .item img {
+    width: 100%; /*Ocupa toda a largura do container pai*/
+    height: 500px;  /* Mantém a altura*/
+    object-fit: cover; /* Corta a imagem sem distorcer para preencher o espaço */
+}
+
+/* evitar  que o Bootstrap sobrescreva as configurações desejadas*/
+#meuCarrossel .carousel-inner .item img {
     width: 100% !important;
-    height: 500px !important;
-    object-fit: cover !important;
+    height: 500px !important; /* Define a altura fixa */
+    object-fit: cover !important; /* Aqui garantimos que não haja distorção */
+    object-position: center; /* Centraliza a parte da imagem que será exibida */
+}
+
+h3 {
+    color: #FF007F;
+    font-size: 28px;
+    margin: 40px 0 20px 0;
+    text-align: center;
+}
+
+/* 1. Garante que todos os cards na mesma linha tenham a mesma altura */
+#product-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch; /* Isso faz as caixinhas ficarem iguais */
+}
+
+/* 2. Ajuste na classe .product que já tem */
+.product {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empurra o botão para o rodapé do card */
+    width: 260px;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
 }
 
 #product-list {
@@ -141,48 +245,75 @@ header {
     flex-wrap: wrap;
     gap: 25px;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 20px;
+    width: 100%;
+    align-items: stretch; /* Adicionado para igualar a altura dos cards */
 }
 
 .product {
     width: 260px;
-    background-color: #1a1a1a;
     border: 1px solid #333;
     padding: 15px;
+    text-align: center;
+    background-color: #1a1a1a;
     border-radius: 8px;
+    /* Mantendo suas cores e adicionando o alinhamento flex */
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-between; 
 }
 
 .product img {
     width: 100%;
-    height: 180px;
-    object-fit: contain;
+    height: 180px;         /* Espaço fixo para a imagem não empurrar o botão */
+    object-fit: contain;    /* Mantém a proporção da foto sem cortar */
+    border-radius: 5px;
+    background-color: #000; 
     margin-bottom: 10px;
 }
 
 .product p {
-    color: #FF007F !important;
+    color: #FF007F !important; /* Seu rosa original */
     font-weight: bold;
     font-size: 18px;
+    margin-bottom: 15px;
 }
 
-/* 5. RODAPÉ */
+.product button {
+    background-color: #FF007F; /* Seu rosa original */
+    color: black;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    width: auto !important; /* Para o botão não ficar gigante */
+    align-self: center;     /* Centraliza o botão */
+    font-weight: bold;
+    margin-top: auto;       /* A "mola" que alinha todos os botões no rodapé */
+}
 #rodape {
-    flex-shrink: 0;
     color: #FFF;
     padding: 30px 20px;
-    border-top: 1px solid #FF007F;
+    margin-top: 50px;
+    border-top: 1px solid #FF007F; /* Linha rosa para combinar com o menu */
     width: 100%;
     text-align: center;
     font-size: 14px;
 }
-
-/* 6. RESPONSIVIDADE */
+/* 7. RESPONSIVIDADE */
 @media (max-width: 768px) {
-    .linha-topo { flex-direction: column; gap: 20px; }
-    .acoes-usuario { flex-direction: column; width: 100%; }
-    #busca { width: 100%; }
-    #meuCarrossel .carousel-inner .item img { height: 300px !important; }
+    .linha-topo {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .acoes-usuario {
+        flex-direction: column;
+        width: 100%;
+    }
+    #busca {
+        width: 100%;
+    }
+    .carousel-inner .item img {
+        height: 300px; /* Menor no celular para ficar proporcional */
+    }
 }
