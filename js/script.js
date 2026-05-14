@@ -64,28 +64,19 @@ window.fazerLogin = function() {
 // FUNÇÃO DE BUSCA
 window.executarBusca = function() {
     const termoBusca = document.getElementById('busca').value.toLowerCase();
-    const carrossel = document.getElementById('meuCarrossel');
-    const vitrine = document.getElementById('vitrine');
-
-    // Ações obrigatórias: Se buscou, a vitrine assume o lugar do carrossel
-    if(carrossel) carrossel.style.display = "none";
-    if(vitrine) vitrine.style.display = "block";
-
-    // Agora sim, a filtragem (apenas UMA vez)
     const resultados = products.filter(p => 
         p.nome.toLowerCase().includes(termoBusca)
     );
 
-    // Decisão final baseada no resultado
-    if (resultados.length > 0) {
-        displayProducts(resultados);
-    } else {
-       `<div style="color: white; text-align: center; width: 100%; min-height: 400px; padding-top: 50px;">
-            <h3>Produto não encontrado! 👠</h3>
-            <p>Tente buscar por outro termo ou categoria.</p>
-        </div>`;
-    }
+    const carrossel = document.getElementById('meuCarrossel');
+    const vitrine = document.getElementById('vitrine');
+
+    if(carrossel) carrossel.style.display = "none";
+    if(vitrine) vitrine.style.display = "block";
+    
+    displayProducts(resultados);
 };
+
 // Adicionar evento para buscar ao apertar "Enter" no teclado
 document.getElementById('busca')?.addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
