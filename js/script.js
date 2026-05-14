@@ -76,16 +76,14 @@ window.executarBusca = function() {
         p.nome.toLowerCase().includes(termoBusca)
     );
 
-  // Decisão final baseada no resultado
+    // Decisão final baseada no resultado
     if (resultados.length > 0) {
         displayProducts(resultados);
     } else {
-        // Indica o elemento e usar o .innerHTML para ele "escrever" na tela
-        document.getElementById('product-list').innerHTML = `
-            <div style="color: white; text-align: center; width: 100%; min-height: 400px; padding-top: 50px;">
-                <h3>Produto não encontrado!</h3>
-                <p>Tente buscar por outro termo ou categoria.</p>
-            </div>`;
+       `<div style="color: white; text-align: center; width: 100%; min-height: 400px; padding-top: 50px;">
+            <h3>Produto não encontrado! 👠</h3>
+            <p>Tente buscar por outro termo ou categoria.</p>
+        </div>`;
     }
 };
 // Adicionar evento para buscar ao apertar "Enter" no teclado
@@ -141,4 +139,3 @@ function displayProducts(produtosParaExibir) {
         productContainer.appendChild(productElement);
     });
 }
-
