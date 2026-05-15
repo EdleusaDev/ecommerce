@@ -61,7 +61,7 @@ window.fazerLogin = function() {
             <form>
                 <input type="text" placeholder="Usuário" style="display: block; margin: 10px auto; padding: 10px; width: 80%;">
                 <input type="password" placeholder="Senha" style="display: block; margin: 10px auto; padding: 10px; width: 80%;">
-                <button type="submit" style="background-color: #FF007F; border: none; padding: 10px 20px; font-weight: bold; align: center;">ENTRAR</button>
+               <button type="submit" style="display: block; margin: 20px auto; background-color: #FF007F; border: none; padding: 10px 40px; font-weight: bold; cursor: pointer; border-radius: 5px; color: white;">ENTRAR</button>
             </form>
         </div>
     `;
