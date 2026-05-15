@@ -54,11 +54,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //FUNÇÃO DE LOGIN
 window.fazerLogin = function() {
-    const usuario = prompt("Digite seu e-mail ou nome de usuário:");
-    if (usuario) {
-        alert("Bem-vinda, " + usuario + "! Login realizado com sucesso (Simulação).");
-        document.getElementById('btnLogin').innerText = "SAIR";
-    }
+    //INSERINDO UM FORMULÁRIO NO LUGAR DA VITRINE AO CLICAR NO BOTÃO LOGIN
+    document.getElementById('vitrine').innerHTML = `
+        <div class="container" style="color: white; padding: 50px; background-color: #1a1a1a; margin-top: 20px; border-radius: 10px; border: 1px solid #FF007F;">
+            <h2 style="color: #FF007F;">Login - Cled Calçados</h2>
+            <form>
+                <input type="text" placeholder="Usuário" style="display: block; margin: 10px auto; padding: 10px; width: 80%;">
+                <input type="password" placeholder="Senha" style="display: block; margin: 10px auto; padding: 10px; width: 80%;">
+                <button type="submit" style="background-color: #FF007F; border: none; padding: 10px 20px; font-weight: bold;">ENTRAR</button>
+            </form>
+        </div>
+    `;
+
+    // Esconde carrossel e mostra vitrine
+    document.getElementById('meuCarrossel').style.display = 'none';
+    document.getElementById('vitrine').style.display = 'block';
+}
 };
 
 // FUNÇÃO DE BUSCA
