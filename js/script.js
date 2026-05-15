@@ -70,7 +70,7 @@ window.fazerLogin = function() {
     document.getElementById('meuCarrossel').style.display = 'none';
     document.getElementById('vitrine').style.display = 'block';
 }
-};
+//};
 
 // FUNÇÃO DE BUSCA
 window.executarBusca = function() {
