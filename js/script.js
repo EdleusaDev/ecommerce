@@ -69,8 +69,8 @@ window.fazerLogin = function() {
     // Esconde carrossel e mostra vitrine
     document.getElementById('meuCarrossel').style.display = 'none';
     document.getElementById('vitrine').style.display = 'block';
-}
-//};
+    }
+};
 
 // FUNÇÃO DE BUSCA
 window.executarBusca = function() {
