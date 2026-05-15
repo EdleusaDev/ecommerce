@@ -57,7 +57,7 @@ window.fazerLogin = function() {
     //INSERINDO UM FORMULÁRIO NO LUGAR DA VITRINE AO CLICAR NO BOTÃO LOGIN
     document.getElementById('vitrine').innerHTML = `
         <div class="container" style="color: white; padding: 50px; background-color: #1a1a1a; margin-top: 20px; border-radius: 10px; border: 1px solid #FF007F;">
-            <h2 style="color: #FF007F;">Login - Cled Calçados</h2>
+            <h2 style="color: #FF007F;">Login - Cled Calçados 👠</h2>
             <form>
                 <input type="text" placeholder="Usuário" style="display: block; margin: 10px auto; padding: 10px; width: 80%;">
                 <input type="password" placeholder="Senha" style="display: block; margin: 10px auto; padding: 10px; width: 80%;">
