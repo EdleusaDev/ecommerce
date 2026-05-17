@@ -54,8 +54,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //FUNÇÃO DE LOGIN
 window.fazerLogin = function() {
+    const productContainer = document.getElementById('product-list');
+    const carrossel = document.getElementById('meuCarrossel');
+    const vitrine = document.getElementById('vitrine');
+
+    // Força a vitrine a aparecer e o carrossel a sumir
+    if (carrossel) carrossel.style.display = 'none';
+    if (vitrine) vitrine.style.display = 'block';
+    
     //INSERINDO UM FORMULÁRIO NO LUGAR DA VITRINE AO CLICAR NO BOTÃO LOGIN
-    document.getElementById('vitrine').innerHTML = `
+    document.getElementById('product-list').innerHTML = `
         <div class="container" style="color: white; padding: 50px; background-color: #1a1a1a; margin-top: 20px; border-radius: 10px; border: 1px solid #FF007F;">
             <h2 style="color: #FF007F;">Login - Cled Calçados 👠</h2>
             <form>
