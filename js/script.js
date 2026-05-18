@@ -67,8 +67,8 @@ window.fazerLogin = function() {
         <div class="container" style="color: white; padding: 50px; background-color: #1a1a1a; margin-top: 20px; border-radius: 10px; border: 1px solid #FF007F;">
             <h2 style="color: #FF007F;">Login - Cled Calçados 👠</h2>
             <form>
-                <input type="text" placeholder="Usuário" style="display: block; margin: 10px auto; padding: 10px; width: 80%;">
-                <input type="password" placeholder="Senha" style="display: block; margin: 10px auto; padding: 10px; width: 80%;">
+                <input type="text" placeholder="Usuário" style="display: block; margin: 10px auto; padding: 10px; width: 80%; color: black !important;">
+                <input type="password" placeholder="Senha" style="display: block; margin: 10px auto; padding: 10px; width: 80%; color: black !important;">
                <button type="submit" style="display: block; margin: 20px auto; background-color: #FF007F; border: none; padding: 10px 40px; font-weight: bold; cursor: pointer; border-radius: 5px; color: white;">ENTRAR</button>
             </form>
         </div>
